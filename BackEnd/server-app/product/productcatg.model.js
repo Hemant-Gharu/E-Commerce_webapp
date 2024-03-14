@@ -1,12 +1,11 @@
-var mongoose = require('mongoose')
-const Schema = mongoose.Schema;
-var ProductCatg = new Schema({
-  pcatgid: { type: Number },
-  pcatgname: { type: String }
+var mongoose=require('mongoose');
+var Schema = mongoose.Schema;
+var ProductCatg=new Schema({
+    pcatgid:{type:Number},
+    pcatgname:{type:String}
 },
-  {
-    collation: 'productcatg'
-  }
+{
+    collection:'productcatg'
+}
 );
-module.exports = mongoose.model('ProductCatg',
-  ProductCatg)
+module.exports =mongoose.model('ProductCatg',ProductCatg);

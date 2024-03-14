@@ -18,7 +18,7 @@ const StateForm = () => {
         alert("State Saved");
       })
       .catch((err) => {
-        alert(err);
+        console.log(err);
       });
   };
 

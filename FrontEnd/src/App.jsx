@@ -1,15 +1,26 @@
 import './App.css'
-import ShowData from './statecityviews/ShowData'
+import ProductCatg from './productviews/ProductCatg'
+import ProductForm from './productviews/ProductForm'
+import ShowProductCatg from './productviews/ShowProductCatg'
+import CityForm from './statecityviews/CityForm'
+import ShowCities from './statecityviews/ShowCities'
+import ShowStates from './statecityviews/ShowStates'
 import StateForm from './statecityviews/StateForm'
 
 function App() {
 
   return (
     <>
-    <StateForm/>
-    <hr />
-    <ShowData/>
-     </>
+      <StateForm />
+      <ShowStates />
+      <hr />
+      <CityForm />
+      <ShowCities />
+      <hr />
+      <ProductCatg />
+      <ShowProductCatg />
+      <ProductForm/>
+    </>
   )
 }
 
