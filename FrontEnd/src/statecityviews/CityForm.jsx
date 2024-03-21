@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const CityForm = () => {
    const [ctid, setCtId] = useState()
-   const [ctname, setCtName] = useState([])// [] removed
+   const [ctname, setCtName] = useState([])
    const [stid, setStId] = useState()
    const [stlist, setStList] = useState([])
 
@@ -23,20 +23,20 @@ const CityForm = () => {
          console.log(err);
       })
       axios.get("http://localhost:5050/city/showcity").then((res) => {
-         setCtId(res.data.length+1+100);
+         setCtId(res.data.length + 1 + 100);
       }).catch((err) => {
          console.log(err);
       })
    }, [])
-   const handleSaveButton=()=>{
-      axios.post("http://localhost:5050/city/addcity/"+ctid+"/"+ctname+"/"+stid).then((res)=>{
+   const handleSaveButton = () => {
+      axios.post("http://localhost:5050/city/addcity/" + ctid + "/" + ctname + "/" + stid).then((res) => {
          alert("City Saved");
-      }).catch((err)=>{
+      }).catch((err) => {
          alert(err);
       })
    }
 
-   return(
+   return (
       <div>
          <center>
             <table>
@@ -52,7 +52,7 @@ const CityForm = () => {
                   <td>State</td>
                   <td>
                      <select onClick={handleStateSelect}>
-                        {stlist.map((item)=>(
+                        {stlist.map((item) => (
                            <option value={item.stid}>{item.stname}</option>
                         ))}
                      </select>

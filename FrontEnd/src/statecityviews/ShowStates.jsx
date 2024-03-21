@@ -21,19 +21,19 @@ const ShowStates = () => {
          <center>
             <h5>State List</h5>
             <table>
-               <tr>
-                  <th>State ID</th>
-                  <th>State Name</th>
-                  {slist.map((item)=>(
+                  <tr>
+                     <th>State ID</th>
+                     <th>State Name</th>
+                  </tr>
+               {slist.map((item) => (
                      <tr>
                         <td>{item.stid}</td>
                         <td>{item.stname}</td>
                      </tr>
-                  ))}
-               </tr>
-            </table>
-         </center>
-      </div>
+               ))}
+         </table>
+      </center>
+      </div >
    )
 }
 export default ShowStates;

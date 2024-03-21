@@ -12,7 +12,6 @@ const ShowProductCatg = () => {
             console.log(err)
          })
    }, [])
-   console.log("show",pcatglist);
    return (
       <div>
          <center>

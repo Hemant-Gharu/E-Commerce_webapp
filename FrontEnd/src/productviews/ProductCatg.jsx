@@ -10,7 +10,7 @@ const ProductCatg = () => {
   }
   const handleSaveButton = ()=>{
     axios.post("http://localhost:5050/productcatg/addproductcatg/"+pcatgid+"/"+pcatgname).then((res)=>{
-      console.log("Product Category Saved")
+      alert("Product Category Saved")
     }).catch((err)=>{
       alert(err);
     })

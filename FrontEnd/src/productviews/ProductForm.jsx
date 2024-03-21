@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "axios";
 import { useEffect, useState } from "react"
 
 const ProductForm = () => {
@@ -8,7 +8,7 @@ const ProductForm = () => {
    const [oprice, setOPrice] = useState()
    const [ppicname, setPPicName] = useState()
    const [ppcatgid, setPcatgId] = useState()
-   const [ppcatglist, setPcatgList] = useState()
+   const [ppcatglist, setPcatgList] = useState([])
 
    const handlePIdText = (evt) => {
       setPId(evt.target.value)
@@ -47,13 +47,14 @@ const ProductForm = () => {
          data: evt.target.files[0]
       }
       setImage(img);
+      setPPicName(evt.target.files[0].name);
    }
    useEffect(() => {
-      axios.get("http://localhost:5050/productcatg/")
+      axios.get("http://localhost:5050/productcatg/showproductcatg/")
          .then((res) => {
             setPcatgList(res.data);
          }).catch((err) => {
-            console.log(err);
+            alert(err);
          })
       axios.get("http://localhost:5050/product/showproduct/")
          .then((res) => {
@@ -62,6 +63,23 @@ const ProductForm = () => {
             alert(err);
          })
    }, [])//dependency array is not added by sir
+   const handleSaveButton = () => {
+      var p = {
+         pid: pid,
+         pname: pname,
+         pprice: pprice,
+         oprice: oprice,
+         ppicname: ppicname,
+         ppcatgid: ppcatgid
+      }
+      axios.post("http://localhost:5050/product/saveproduct", p)
+      .then((res) => {
+         alert("Data Saved");
+      }).catch((err) => {
+         alert(err);
+      })
+   }
+
    return (
       <div>
          <h5>Product Entry Form</h5>
@@ -81,6 +99,36 @@ const ProductForm = () => {
             <tr>
                <td>Offer Price</td>
                <td><input type="text" onChange={handleOPriceText} /></td>
+            </tr>
+            <tr>
+               <td>Category</td>
+               <td>
+                  <select onClick={handlePCatgSelect}>
+                     {ppcatglist.map((item) => (
+                        <option value={item.pcatgid}>{item.pcatgname}</option>
+                     ))}
+                  </select>
+               </td>
+            </tr>
+            <tr>
+               <td>Photo</td>
+               <td>
+                  <div>
+                     {image.preview && <img src={image.preview} width={100} height={100} />}
+                     <hr />
+                     <form>
+                        <input type="file" name="file" onChange={handleFileChange} />
+                        <button type="submit" onClick={handleSubmit}>Upload</button>
+                     </form>
+                     {status && <h4>{status}</h4>}
+                  </div>
+               </td>
+            </tr>
+            <tr>
+               <td></td>
+               <td>
+                  <button type="submit" onClick={handleSaveButton}>Save</button>
+               </td>
             </tr>
          </table>
       </div>

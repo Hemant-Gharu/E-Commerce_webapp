@@ -6,7 +6,7 @@ const multer= require('multer');
 //save Product
 productRoute.route('/saveproduct').post(function (req,res) {
     let product =new Product(req.body);
-    console.log(product)
+    // console.log(product)
     product.save().then(product=>{
         res.status(200).json({'product':'product added successfully'+product});
 
@@ -34,19 +34,19 @@ productRoute.route('/getmaxpid').get(function (req,res){
 //save product Image
 const stv= multer.diskStorage({
     destination: (req, file, cb)=>{
-        cb(null,'productimages/')
+        cb(null,"productimages/")
     },
     filename:(req,file,cb)=>{
-        cb(null,file.original)
+        cb(null,file.originalname)
     },
 })
 const uploadv = multer({storage:stv});
-productRoute.post('./saveproductimage',uploadv.single('file'),(req,res)=>{
+productRoute.post('/saveproductimage',uploadv.single('file'),(req,res)=>{
     res.json({})
 });
 //get product image
-productRoute.route('/getproductimage/:picname').get((req,res)=>{
-    res.sendFile("/C:/Users/SSIDDHANT/Desktop/Project/backend/Serverapp/productimages/"+req.params.picname)
+productRoute.route('/getproductimage/:ppicname').get((req,res)=>{
+    res.sendFile("C:/Users/AVITA/Desktop/E-Commerce Website/E-Commerce_webapp/BackEnd/server-app/productimages/"+req.params.ppicname)
 });
 module.exports=productRoute;
 

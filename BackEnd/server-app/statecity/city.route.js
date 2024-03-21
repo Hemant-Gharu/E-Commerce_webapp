@@ -19,8 +19,7 @@ cityRoute.route('/showcity').get(function (req, res) {
       city => {
          res.send(city);
          res.end();
-      }
-   ).catch(err => {
+      }).catch(err => {
       res.status(400).send("Data not found something went wrong")
 
    })
