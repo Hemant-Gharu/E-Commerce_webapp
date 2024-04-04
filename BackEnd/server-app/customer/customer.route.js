@@ -68,4 +68,4 @@ customerRoute.route("/getcustomercount").get((req, res) => {
 //get customer details by id
 customerRoute.route("/getcustomerdetails/:cid")
 
-module.exports = venderRoute;
+module.exports = customerRoute;

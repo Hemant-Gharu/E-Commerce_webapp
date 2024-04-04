@@ -1,18 +1,16 @@
-var mongoose=require('mongoose');
-const Schema=mongoose.Schema;
-var Product=new Schema({
-    pid:{type:Number},
-    pname:{type:String},
-    pprice:{type:Number},
-    oprice:{type:Number},
-    ppicname:{type:String},
-    pcatid:{type:Number}
-
-
+var mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+var Product = new Schema({
+    pid: { type: Number },
+    pname: { type: String },
+    pprice: { type: Number },
+    oprice: { type: Number },
+    ppicname: { type: String },
+    pcatid: { type: Number }
 }
-,
-{
-    collection:'Product'
-}
+    ,
+    {
+        collection: 'Product'
+    }
 );
-module.exports=mongoose.model("Product",Product);
+module.exports = mongoose.model("Product", Product);

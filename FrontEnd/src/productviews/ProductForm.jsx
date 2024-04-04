@@ -10,29 +10,29 @@ const ProductForm = () => {
    const [ppcatgid, setPcatgId] = useState()
    const [ppcatglist, setPcatgList] = useState([])
 
-   const handlePIdText = (evt) => {
-      setPId(evt.target.value)
+   const handlePIdText = (event) => {
+      setPId(event.target.value)
    }
-   const handlePNameText = (evt) => {
-      setPName(evt.target.value)
+   const handlePNameText = (event) => {
+      setPName(event.target.value)
    }
-   const handlePPriceText = (evt) => {
-      setPPrice(evt.target.value)
+   const handlePPriceText = (event) => {
+      setPPrice(event.target.value)
    }
-   const handleOPriceText = (evt) => {
-      setOPrice(evt.target.value)
+   const handleOPriceText = (event) => {
+      setOPrice(event.target.value)
    }
-   const handlePPicNameText = (evt) => {
-      setPPicName(evt.target.value)
-   }
-   const handlePCatgSelect = (evt) => {
-      setPcatgId(evt.target.value)
+   // const handlePPicNameText = (event) => {
+   //    setPPicName(event.target.value)
+   // }
+   const handlePCatgSelect = (event) => {
+      setPcatgId(event.target.value)
    }
 
    const [image, setImage] = useState({ preview: '', data: '' })
    const [status, setStatus] = useState('')
-   const handleSubmit = async (evt) => {
-      evt.preventDefault();
+   const handleSubmit = async (event) => {
+      event.preventDefault();
       let formData = new FormData();
       formData.append('file', image.data);
       const response = await fetch('http://localhost:5050/product/saveproductimage', {
@@ -41,13 +41,13 @@ const ProductForm = () => {
       })
       if (response) { setStatus("Product Photo Uploaded " + response.statusText) }
    }
-   const handleFileChange = (evt) => {
+   const handleFileChange = (event) => {
       const img = {
-         preview: URL.createObjectURL(evt.target.files[0]),
-         data: evt.target.files[0]
+         preview: URL.createObjectURL(event.target.files[0]),
+         data: event.target.files[0]
       }
       setImage(img);
-      setPPicName(evt.target.files[0].name);
+      setPPicName(event.target.files[0].name);
    }
    useEffect(() => {
       axios.get("http://localhost:5050/productcatg/showproductcatg/")
@@ -79,7 +79,6 @@ const ProductForm = () => {
          alert(err);
       })
    }
-
    return (
       <div>
          <h5>Product Entry Form</h5>

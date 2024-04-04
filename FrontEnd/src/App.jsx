@@ -8,6 +8,9 @@ import CityForm from './statecityviews/CityForm'
 import ShowCities from './statecityviews/ShowCities'
 import ShowStates from './statecityviews/ShowStates'
 import StateForm from './statecityviews/StateForm'
+import CustomerReg from './customerviews/CustomerReg'
+import CustomerLogin from './customerviews/CustomerLogin'
+import CustomerHome from './customerviews/CustomerHome'
 
 function App() {
 
@@ -23,15 +26,17 @@ function App() {
       <hr /> */}
       {/* <h1>Product Category</h1>
       <ProductCatg />
-      <ShowProductCatg />
-      <hr /> */}
-      <h1>Product</h1>
-      <ProductForm/>
-      <ShowProduct/>
+      <ShowProductCatg /> */}
       <hr />
-      <ProductList/>
+      <h1>Product</h1>
+      {/* <ProductForm/>
+      <ShowProduct/>
+      <ProductList/> */}
+      {/* <hr /> */}
+      <CustomerReg/>
+      <CustomerLogin/>
+      {/* <CustomerHome/> */}
     </>
   )
 }
-
 export default App

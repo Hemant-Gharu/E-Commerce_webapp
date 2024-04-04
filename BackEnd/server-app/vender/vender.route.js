@@ -1,12 +1,12 @@
-const exports = require("express");
-const vanderRoute=express.Router();
+const express = require("express");
+const venderRoute=express.Router();
 const bodyParser = require("body-parser");
 const Vender=require("./vender.model");
 var fs = require("fs");
 const multer = require("multer");
 
 //vender registration code
-vanderRoute.route("/register").post((req, res) => {
+venderRoute.route("/register").post((req, res) => {
     var vender = new vender(req.body);
     vender.save().then(vender=>{
         if(vender!=null)
