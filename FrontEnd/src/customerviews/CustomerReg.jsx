@@ -55,7 +55,7 @@ const CustomerReg = () => {
          method: 'POST',
          body: formData
       })
-      if (response) { setStatus('File Uploaded' + response.statusText) }
+      if (response) { setStatus('File Uploaded ' + response.statusText) }
    }
    const handleFileChange = (evt) => {
       const img = {
@@ -80,6 +80,7 @@ const CustomerReg = () => {
       };
       axios.post("http://localhost:5050/customer/register", obj)
          .then((res) => {
+            // console.log(res);
             alert("Customer Registration Done");
          }).catch((err) => {
             alert(err);

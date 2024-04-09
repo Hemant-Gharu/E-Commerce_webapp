@@ -36,14 +36,15 @@ customerRoute.route("/login/:cuid/:cupass").get((req, res) => {
 customerRoute.route
     ('/getimage/:cpicname').
     get((req, res) => {
-        res.sendFile("C:/Users/AVITA/Desktop/E-Commerce Website/E-Commerce_webapp/BackEnd/server-app/customerimages/" + req.params.cpicname)
+        res.sendFile("C:/Users/AVITA/Desktop/E-Commerce Website/E-Commerce_webapp/BackEnd/server-app/customerimage/" + req.params.cpicname)
     });
 
 
 //image save
 const st = multer.diskStorage({
     destination: (req, file, cb) => {
-    cb(null, 'customerimages/')
+    // cb(null, 'customerimages/')
+    cb(null, 'C:/Users/AVITA/Desktop/E-Commerce Website/E-Commerce_webapp/BackEnd/server-app/customerimage/')
 },
     filename: (req, file, cb) => {
         cb(null, file.originalname)
@@ -66,6 +67,16 @@ customerRoute.route("/getcustomercount").get((req, res) => {
     })
 });
 //get customer details by id
-customerRoute.route("/getcustomerdetails/:cid")
+customerRoute.route("/getcustomerdetails/:cid").get((req, res)=>{
+    var id=req.params.cid;
+    Customer.findOne({"Cid":id}).then(customer=>{
+        console.log(customer);
+        res.send(customer);
+        res.end();
+    }).catch((err)=>{
+        res.send("Somthing Went Wrong");
+        res.end();
+    })
+})
 
 module.exports = customerRoute;

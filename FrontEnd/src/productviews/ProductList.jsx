@@ -18,7 +18,7 @@ const ProductList = (props) => {
       selitemlist.push(obj);
    }
    useEffect(() => {
-      axios.get("http://localhost:5050/product/showproduct")
+      axios.get("http://localhost:5050/product/showproduct/")
          .then((res) => {
             setPList(res.data);
          }).catch((err) => {
@@ -30,7 +30,6 @@ const ProductList = (props) => {
       const root = ReactDOM.createRoot(document.getElementById("root"));
       root.render(<Bill data={selitemlist}></Bill>)
    }
-   console.log("plist",plist);
    return (
       <div>
          <div>
@@ -63,7 +62,7 @@ const ProductList = (props) => {
                      <td>{item.oprice}</td>
                      <td>{item.pcatgid}</td>
                      <td>
-                        <img src={"http://localhost:5050/product/getproductimage" + item.ppicname} height={100} width={100} />
+                        <img src={"http://localhost:5050/product/getproductimage/" + item.ppicname} height={100} width={100} />
                      </td>
                      <td>
                         <button type="submit" onClick={()=>handleBuyButton(item)}>Buy</button>

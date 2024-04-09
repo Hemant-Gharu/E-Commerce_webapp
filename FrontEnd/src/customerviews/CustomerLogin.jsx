@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import CustomerHome from "../customerviews/CustomerHome"
 
 const CustomerLogin = () => {
    const [uid, setUId] = useState();
@@ -21,6 +22,7 @@ const CustomerLogin = () => {
                cid: res.data.Cid
             }
             root.render(<CustomerHome data={obj} />)
+            console.log(obj);
          } else {
             alert("Invalid Id/Password");
          }

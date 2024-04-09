@@ -14,29 +14,29 @@ import CustomerHome from './customerviews/CustomerHome'
 
 function App() {
 
-  return (
-    <>
-    {/* <h1>States</h1>
+   return (
+      <>
+         {/* <h1>States</h1>
       <StateForm />
       <ShowStates />
       <hr /> */}
-      {/* <h1>City</h1>
+         {/* <h1>City</h1>
       <CityForm />
       <ShowCities /> 
       <hr /> */}
-      {/* <h1>Product Category</h1>
+         {/* <h1>Product Category</h1>
       <ProductCatg />
-      <ShowProductCatg /> */}
-      <hr />
-      <h1>Product</h1>
-      {/* <ProductForm/>
+      <ShowProductCatg />
+      <hr /> */}
+         {/* <h1>Product</h1>
+      <ProductForm/>
       <ShowProduct/>
       <ProductList/> */}
-      {/* <hr /> */}
-      <CustomerReg/>
-      <CustomerLogin/>
-      {/* <CustomerHome/> */}
-    </>
-  )
+         <hr />
+         <CustomerReg/>
+         <CustomerLogin />
+         {/* <CustomerHome /> */}
+      </>
+   )
 }
 export default App
