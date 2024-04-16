@@ -65,7 +65,7 @@ const ProductList = (props) => {
                         <img src={"http://localhost:5050/product/getproductimage/" + item.ppicname} height={100} width={100} />
                      </td>
                      <td>
-                        <button type="submit" onClick={()=>handleBuyButton(item)}>Buy</button>
+                        <button type="submit" onClick={() => handleBuyButton(item)}>Buy</button>
                      </td>
                   </tr>
                ))}

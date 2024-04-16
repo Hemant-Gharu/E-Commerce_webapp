@@ -11,6 +11,9 @@ import StateForm from './statecityviews/StateForm'
 import CustomerReg from './customerviews/CustomerReg'
 import CustomerLogin from './customerviews/CustomerLogin'
 import CustomerHome from './customerviews/CustomerHome'
+import VenderReg from './venderviews/VenderReg'
+import VenderLogin from './venderviews/VenderLogin'
+import VenderHome from './venderviews/VenderHome'
 
 function App() {
 
@@ -26,16 +29,19 @@ function App() {
       <hr /> */}
          {/* <h1>Product Category</h1>
       <ProductCatg />
-      <ShowProductCatg />
-      <hr /> */}
-         {/* <h1>Product</h1>
+      <ShowProductCatg /> */}
+      {/* <hr />
+         <h1>Product</h1>
       <ProductForm/>
       <ShowProduct/>
       <ProductList/> */}
-         <hr />
-         <CustomerReg/>
+         {/* <hr /> */}
+         {/* <CustomerReg/> */}
          <CustomerLogin />
-         {/* <CustomerHome /> */}
+         <hr />
+         {/* <VenderReg/> */}
+         {/* <VenderLogin/> */}
+         {/* <VenderHome/> */}
       </>
    )
 }

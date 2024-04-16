@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import CustomerHome from "../customerviews/CustomerHome"
+import ReactDOM from "react-dom/client";
 
 const CustomerLogin = () => {
    const [uid, setUId] = useState();
@@ -14,7 +15,8 @@ const CustomerLogin = () => {
    }
    const handleLoginButton = () => {
       axios.get("http://localhost:5050/customer/login/" + uid + "/" + upass).then((res) => {
-         if (res.data.CUserId != undefined) {
+      console.log(res.data);   
+      if (res.data.CUserId != undefined) {
             const root = ReactDOM.createRoot(document.getElementById("root"));
             var obj = {
                cfname: res.data.CustomerName,
@@ -31,7 +33,7 @@ const CustomerLogin = () => {
    return (
       <div>
          <center>
-            <h4 style={{ backgroundColor: "yellow" }}>Customer Login Form</h4>
+            <h4 style={{ backgroundColor: "green" }}>Customer Login Form</h4>
             <table>
                <tr>
                   <td>User Id</td>
@@ -48,7 +50,7 @@ const CustomerLogin = () => {
                <tr>
                   <td></td>
                   <td>
-                     <button type="submit" onChange={handleLoginButton}>Login</button>
+                     <button type="submit" onClick={handleLoginButton}>Login</button>
                   </td>
                </tr>
             </table>

@@ -24,7 +24,9 @@ customerRoute.route("/register").post((req, res) => {
 customerRoute.route("/login/:cuid/:cupass").get((req, res) => {
     var id = req.params.cuid;
     var pass = req.params.cupass;
-    Customer.findOne({ $and: [{ "CUserId": id }, { "CUserPass": pass }] }).then(customer => {
+    console.log(id+""+pass)
+    Customer.findOne({ $and:[{ "CUserId": id }, { "CUserPass": pass }] }).then(customer => {
+        console.log(customer)
         res.send(customer);
         res.end();
     }).catch(err => {

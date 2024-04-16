@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Bill = (props) => {
+   console.log("props ",props.data);
    var total = 0;
    const [customername, setCustomerName] = useState();
    const [caddress, setCAddress] = useState();
@@ -10,6 +11,7 @@ const Bill = (props) => {
 
    useEffect(() => {
       axios.get("http://localhost:5050/customer/customerdetails/" + props.data[0].cid).then((res) => {
+         // console.log(props.data[0].cid);
          setCustomerName(res.data.CustomerName);
          setCAddress(res.data.CAddress);
          setCContact(res.data.CContact);
@@ -76,7 +78,7 @@ const Bill = (props) => {
                total = total + item.buylist.oprice
             })}
             <h5>Total Bill = {total}</h5>
-            <button onClick={handlePayNowClick}></button>
+            <button onClick={handlePayNowClick}>Pay Bill</button>
          </center>
       </div>
    )

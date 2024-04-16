@@ -78,7 +78,7 @@ const VenderReg = () => {
         }
     })
     return (
-        <div style={{ backgroundColor: "bisque", border: "solid", borderRadius: "150", height: "600px", width: "600px" }}>
+        <div style={{ backgroundColor: "gray", border: "solid", borderRadius: "150", height: "500px", width: "600px" }}>
             <table>
                 <tr>
                     <td>Vender Id</td>
